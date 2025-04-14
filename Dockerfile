@@ -1,4 +1,3 @@
-//FROM n8nio/n8n:latest
 FROM n8nio/n8n:next
 RUN npm install n8n-nodes-langchain
 
