@@ -1,6 +1,7 @@
-FROM n8nio/n8n:next
-RUN npm install n8n-nodes-langchain
+# FROM n8nio/n8n:next
+# RUN npm install n8n-nodes-langchain
 
+FROM n8nio/n8n
 
 ARG PGPASSWORD
 ARG PGHOST
