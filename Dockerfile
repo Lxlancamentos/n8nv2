@@ -1,5 +1,5 @@
 FROM n8nio/n8n:next
-RUN npm install n8n-nodes-langchain
+RUN npm install n8n-nodes-langchain n8n-nodes-hotmart
 
 # FROM n8nio/n8n
 
