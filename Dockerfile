@@ -1,7 +1,11 @@
 FROM n8nio/n8n:next
-RUN npm install n8n-nodes-langchain n8n-nodes-hotmart
 
-# FROM n8nio/n8n
+# Instala os pacotes no contexto global e como root
+USER root
+RUN npm install --location=global n8n-nodes-langchain n8n-nodes-hotmart
+
+# Volta para o usuário padrão do n8n
+USER node
 
 ARG PGPASSWORD
 ARG PGHOST
@@ -17,7 +21,6 @@ ENV DB_POSTGRESDB_USER=$PGUSER
 ENV DB_POSTGRESDB_PASSWORD=$PGPASSWORD
 
 ARG ENCRYPTION_KEY
-
 ENV N8N_ENCRYPTION_KEY=$ENCRYPTION_KEY
 
-CMD ["n8n start"]
+CMD ["n8n", "start"]
